@@ -22,9 +22,9 @@ class LinkedList {
         let node = new Node(data);
         let current;
 
-        if(!this.head) {
+        if(!this.head)  
             this.head = node;
-        } else {
+        else {
             current = this.head;
 
             while(current.next) {
@@ -42,22 +42,21 @@ class LinkedList {
 
     //returns the first node in the list
     head() {
-        if(this.head) {
+        if(this.head)
             return this.head;
-        } else {
+        else
             return console.log("The list is empty!");
-        }
     }
 
     //returns the last node in the list
     tail() {
         let current = this.head;
 
-        if(!current) {
+        if(!current)
             return console.log("The list is empty");
-        } else if(this.size == 1) {
+        else if(this.size == 1)
             return current;
-        } else {
+        else {
             while(current.next) {
                 current = current.next;
             }
@@ -76,9 +75,8 @@ class LinkedList {
                     index--;
                 }
                 return current;
-            } else {
+            } else
                 return console.log("That position in the list doesn't exist!");
-            }
         }
         return console.log("The list is empty!");
     }
@@ -87,11 +85,11 @@ class LinkedList {
     pop() {
         let current = this.head;
 
-        if(!current) {
+        if(!current)
             return console.log("The list is empty");
-        } else if(this.size == 1) {
+        else if(this.size == 1)
             return current;
-        } else {
+        else {
             while(current.next.next != null) {
                 current = current.next;
             }
@@ -105,17 +103,15 @@ class LinkedList {
     contains(value) {
         let current = this.head;
 
-        if(!current) {
+        if(!current)
             return console.log("The list is empty!");
-        } else {
+        else {
             while(current && current.data !== value) {
                 current = current.next;
+                if(current && current.data == value)
+                    return true;
             }
-            if(current && current.data == value) {
-                return true;
-            } else {
             return false;
-            }
         }
     }
 
@@ -124,20 +120,16 @@ class LinkedList {
         let current = this.head;
         let index = 0;
 
-        if(!current) {
+        if(!current)
             return console.log("The list is empty");
-        } else if(current.data == value) {
-            return index;
-        } else {
+        else {
             while(current && current.data != value) {
                 current = current.next;
                 index++;
             }
-            if(current && current.data == value) {
+            if(current && current.data == value)
                 return index;
-            } else {
-                return null;
-            }
+            return null;
         }
     }
 
@@ -147,7 +139,7 @@ class LinkedList {
         let current = this.head;
 
         while(current) {
-            console.log(current);
+            console.log(JSON.stringify(current));
             current = current.next;
         }
     }
